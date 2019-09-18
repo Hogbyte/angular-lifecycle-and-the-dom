@@ -13,18 +13,25 @@ interface IEventRow {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, DoCheck, OnChanges, OnDestroy, OnInit {
-  currentCssClass = 'blue';
+  currentCssClass: string = 'blue';
+  useTimeout: boolean = false;
   eventRows: IEventRow[] = [];
 
   onToggleCssClassClick(): void {
     this.eventRows = [];
     this.currentCssClass = (this.currentCssClass === 'blue') ? 'red' : 'blue';
     this.addEventRow("onToggleCssClassClick");
-    setTimeout(() => { this.addEventRow("after:setTimeout"); })
+    if (this.useTimeout) { setTimeout(() => { this.addEventRow("after:setTimeout"); }); }
   }
 
   onReloadClick(): void {
     window.location.reload();
+  }
+
+  onUseTimeoutChange(value: boolean): void {
+    this.useTimeout = value;
+    this.eventRows = [];
+    this.addEventRow("onUseTimeoutChange");
   }
 
   ngOnChanges(): void { this.addEventRow("ngOnChanges"); }

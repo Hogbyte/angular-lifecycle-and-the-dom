@@ -1,14 +1,15 @@
 <button id="btnTest" type="button" [class]="currentCssClass" (click)="onToggleCssClassClick()">Toggle CSS Class</button>
 <button type="button" (click)="onReloadClick()">Reload</button>
+<label><input type="checkbox" [checked]="useTimeout" (change)="onUseTimeoutChange($event.target.checked)">Use Timeout</label>
 <br />
 <br />
 <table>
   <thead>
     <tr>
       <th>Event</th>
-      <th>Button CSS Class (component property)</th>
+      <th>CSS Class (component property)</th>
       <th>Button HTML</th>
-      <th>Button Css Class (DOM)</th>
+      <th>CSS Class (Button DOM)</th>
     </tr>
   </thead>
   <tbody>
