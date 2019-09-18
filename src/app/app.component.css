@@ -1,0 +1,24 @@
+.blue {
+    color: blue;
+}
+
+.red {
+    color: red;
+}
+
+button {
+    margin-right: 30px;
+}
+
+thead th {
+    text-align: left;
+    text-decoration: underline;
+}
+
+td, th {
+    padding-right: 30px;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: lightgray;
+}
